@@ -296,50 +296,13 @@
    </footer>
   </div>
   <script>
-   Subscribe form
-  // document.getElementById('subscribe-form').addEventListener('submit', function(e) {
-  //   e.preventDefault();
-  //   document.getElementById('form-success').classList.remove('hidden');
-  //   this.querySelectorAll('input').forEach(i => i.value = '');
-  // });
-   document.addEventListener("DOMContentLoaded", function () {
-
-  // ✅ Initialize EmailJS (your PUBLIC KEY)
-  emailjs.init("fxL72nufdJ__F_ZE4");
-
-  const form = document.getElementById("subscribe-form");
-  const button = form.querySelector("button");
-  const successMsg = document.getElementById("form-success");
-
-  form.addEventListener("submit", function (e) {
+   //Subscribe form
+  document.getElementById('subscribe-form').addEventListener('submit', function(e) {
     e.preventDefault();
-
-    button.disabled = true;
-    button.innerText = "Sending...";
-
-    // ✅ Send form directly (LESS ERRORS)
-    emailjs.sendForm(
-      "service_0h5ct6s",     // your service ID
-      "template_7tykpxn",    // your template ID
-      "#subscribe-form"      // form ID
-    )
-    .then(function () {
-      form.reset();
-      successMsg.classList.remove("hidden");
-    })
-    .catch(function (error) {
-      console.error("FAILED...", error);
-      alert("Something went wrong. Check console.");
-    })
-    .finally(function () {
-      button.disabled = false;
-      button.innerText = "Subscribe";
-    });
+    document.getElementById('form-success').classList.remove('hidden');
+    this.querySelectorAll('input').forEach(i => i.value = '');
   });
 
-});
-
-    
   // Lucide icons
   lucide.createIcons();
 
