@@ -1,0 +1,385 @@
+<!doctype html>
+<html lang="en" class="h-full">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TheRecycled.app — Verified Sustainable Brands</title>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
+  <script src="/_sdk/element_sdk.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&amp;family=Outfit:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="images/logo.png">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            serif: ['DM Serif Display', 'Georgia', 'serif'],
+            sans: ['Outfit', 'system-ui', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    html { height: 100%; }
+    body { height: 100%; margin: 0; }
+    .app-root { height: 100%; overflow: auto; }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes scaleIn {
+      from { opacity: 0; transform: scale(0.92); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    @keyframes slideRight {
+      from { opacity: 0; transform: translateX(-20px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+    .anim-fade-up { animation: fadeUp 0.8s ease both; }
+    .anim-fade-up-d1 { animation: fadeUp 0.8s ease 0.15s both; }
+    .anim-fade-up-d2 { animation: fadeUp 0.8s ease 0.3s both; }
+    .anim-fade-up-d3 { animation: fadeUp 0.8s ease 0.45s both; }
+    .anim-fade-up-d4 { animation: fadeUp 0.8s ease 0.6s both; }
+    .anim-scale-in { animation: scaleIn 0.7s ease 0.2s both; }
+    .anim-slide-right { animation: slideRight 0.6s ease both; }
+
+    .step-card { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+    .step-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.08); }
+
+    .cta-btn {
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+    .cta-btn::after {
+      content: '';
+      position: absolute;
+      top: 0; left: -100%; width: 100%; height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+      transition: left 0.5s ease;
+    }
+    .cta-btn:hover::after { left: 100%; }
+    .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(30,70,40,0.3); }
+
+    .check-item { transition: transform 0.2s ease; }
+    .check-item:hover { transform: translateX(4px); }
+
+    .grain-overlay {
+      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      pointer-events: none; z-index: 50; opacity: 0.025;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+  </style>
+  <style>body { box-sizing: border-box; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+ </head>
+ <body class="font-sans">
+  <div class="grain-overlay"></div>
+  <div class="app-root w-full" id="app-root" style="background:#f7f5f0;"><!-- STICKY HEADER -->
+   <header id="site-header" class="sticky top-0 z-40 backdrop-blur-md border-b" style="background:rgba(247,245,240,0.9); border-color:#e0ddd5;">
+    <div class="max-w-6xl mx-auto px-6 py-5 flex items-center justify-between">
+     <div class="flex items-center gap-3">
+      <div class="w-10 h-10 rounded-xl flex items-center justify-center" style="background:#1e4628;">
+       <svg width="22" height="22" viewbox="0 0 24 24" fill="none" stroke="#a8c5a0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10" /> <path d="M12 2c3 3 4.5 7 4.5 10s-1.5 7-4.5 10" /> <path d="M2 12h10" /> <path d="M17 12a5 5 0 0 1 5 5c0 2.8-2.2 5-5 5s-5-2.2-5-5a5 5 0 0 1 5-5z" /> <path d="M17 15v2.5l1.5 1" />
+       </svg>
+      </div><span class="font-serif text-xl tracking-tight" style="color:#1e4628;">TheRecycled<span class="opacity-50">.app</span></span>
+     </div><a href="https://buy.stripe.com/4gMcMZa8g1Qmdlz4cLes000" target="_blank" rel="noopener noreferrer" class="cta-btn inline-flex items-center gap-2 px-6 py-3 rounded-full text-sm font-semibold text-white" style="background:#1e4628;"> Apply Now <i data-lucide="arrow-right" style="width:16px;height:16px;"></i> </a>
+    </div>
+   </header><!-- HERO -->
+   <section class="relative overflow-hidden" style="background: linear-gradient(165deg, #1e4628 0%, #2a5e36 40%, #3a7a48 100%);">
+    <div class="absolute inset-0 opacity-10">
+     <svg width="100%" height="100%">
+      <defs>
+       <pattern id="heroGrid" width="60" height="60" patternunits="userSpaceOnUse">
+        <path d="M60 0L0 60M45 0L0 45M60 15L15 60" stroke="#a8c5a0" stroke-width="0.5" fill="none" />
+       </pattern>
+      </defs><rect width="100%" height="100%" fill="url(#heroGrid)" />
+     </svg>
+    </div>
+    <div class="max-w-4xl mx-auto px-6 py-24 md:py-36 text-center relative z-10">
+     <div class="anim-fade-up inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-medium mb-8" style="background:rgba(168,197,160,0.2); color:#c5dfc0; border:1px solid rgba(168,197,160,0.2);"><span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span> Applications Open
+     </div>
+     <h1 id="hero-headline" class="anim-fade-up-d1 font-serif text-4xl md:text-6xl lg:text-7xl leading-tight text-white mb-6">Apply to Become a Verified Sustainable Brand</h1>
+     <p id="hero-subheadline" class="anim-fade-up-d2 text-lg md:text-xl max-w-2xl mx-auto mb-10" style="color:#c5dfc0;">Join a curated marketplace of trusted, verified brands committed to transparency and true sustainability.</p>
+     <div class="anim-fade-up-d3 flex flex-col sm:flex-row items-center justify-center gap-4"><a href="https://buy.stripe.com/4gMcMZa8g1Qmdlz4cLes000" target="_blank" rel="noopener noreferrer" class="cta-btn inline-flex items-center gap-2 px-8 py-4 rounded-full text-base font-semibold" style="background:#fff; color:#1e4628;"> Apply Now <i data-lucide="arrow-right" style="width:18px;height:18px;"></i> </a>
+     </div>
+     <p id="urgency-note" class="anim-fade-up-d4 mt-6 text-sm font-medium" style="color:#8ab882;">Limited to the Founding 50 brands</p>
+    </div>
+    <div class="absolute bottom-0 left-0 right-0 h-24" style="background: linear-gradient(to top, #f7f5f0, transparent);"></div>
+   </section><!-- TRUST / VALUE -->
+   <section class="py-20 md:py-28 px-6">
+    <div class="max-w-5xl mx-auto">
+     <div class="text-center mb-16">
+      <p class="text-xs font-semibold tracking-widest uppercase mb-4" style="color:#4a8c5c;">Trust &amp; Integrity</p>
+      <h2 class="font-serif text-3xl md:text-5xl mb-6" style="color:#1e4628;">No Greenwashing. Just Verified Sustainability.</h2>
+      <p class="text-lg max-w-2xl mx-auto" style="color:#5a6b5e;">We verify every brand before allowing them on the platform to ensure credibility, transparency, and genuine sustainability.</p>
+     </div>
+     <div class="grid md:grid-cols-3 gap-4 mb-12">
+      <div class="text-center p-6 rounded-2xl" style="background:rgba(30,70,40,0.04); border:1px solid rgba(30,70,40,0.08);">
+       <div class="text-3xl mb-3" style="display: flex; justify-content: center; align-items: center; height: fit-content;">
+        <img src="images/woman.svg" alt="Woman gesturing" style="max-width: 30px;" />
+       </div>
+       <p class="font-semibold" style="color:#1e4628;">No greenwashing</p>
+      </div>
+      <div class="text-center p-6 rounded-2xl" style="background:rgba(30,70,40,0.04); border:1px solid rgba(30,70,40,0.08);">
+       <div class="text-3xl mb-3" style="display: flex; justify-content: center; align-items: center; height: fit-content;" >
+        <img src="images/lightning.svg" alt="" style="max-width: 30px;" />
+       </div>
+       <p class="font-semibold" style="color:#1e4628;">No shortcuts</p>
+      </div>
+      <div class="text-center p-6 rounded-2xl" style="background:rgba(30,70,40,0.04); border:1px solid rgba(30,70,40,0.08);">
+       <div class="text-3xl mb-3">
+        💎
+       </div>
+       <p class="font-semibold" style="color:#1e4628;">No compromises</p>
+      </div>
+     </div>
+     <div class="grid sm:grid-cols-2 gap-4 max-w-2xl mx-auto">
+      <div class="check-item flex items-center gap-3 p-4 rounded-xl" style="background:#fff; border:1px solid #e0ddd5;">
+       <div class="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0" style="background:#e8f5e3;"><i data-lucide="check" style="width:16px;height:16px;color:#1e4628;"></i>
+       </div><span class="text-sm font-medium" style="color:#1e4628;">Rigorous verification process</span>
+      </div>
+      <div class="check-item flex items-center gap-3 p-4 rounded-xl" style="background:#fff; border:1px solid #e0ddd5;">
+       <div class="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0" style="background:#e8f5e3;"><i data-lucide="check" style="width:16px;height:16px;color:#1e4628;"></i>
+       </div><span class="text-sm font-medium" style="color:#1e4628;">Only approved brands are listed</span>
+      </div>
+      <div class="check-item flex items-center gap-3 p-4 rounded-xl" style="background:#fff; border:1px solid #e0ddd5;">
+       <div class="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0" style="background:#e8f5e3;"><i data-lucide="check" style="width:16px;height:16px;color:#1e4628;"></i>
+       </div><span class="text-sm font-medium" style="color:#1e4628;">Built on transparency and trust</span>
+      </div>
+      <div class="check-item flex items-center gap-3 p-4 rounded-xl" style="background:#fff; border:1px solid #e0ddd5;">
+       <div class="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0" style="background:#e8f5e3;"><i data-lucide="check" style="width:16px;height:16px;color:#1e4628;"></i>
+       </div><span class="text-sm font-medium" style="color:#1e4628;">Designed for conscious consumers</span>
+      </div>
+     </div>
+    </div>
+   </section><!-- EXCLUSIVITY -->
+   <section class="py-20 md:py-28 px-6" style="background:#1e4628;">
+    <div class="max-w-5xl mx-auto">
+     <div class="grid md:grid-cols-2 gap-16 items-center">
+      <div>
+       <p class="text-xs font-semibold tracking-widest uppercase mb-4" style="color:#8ab882;">Exclusivity</p>
+       <h2 class="font-serif text-3xl md:text-5xl text-white mb-6">Curated. Selective. Exclusive.</h2>
+       <p class="text-lg mb-4" style="color:#a8c5a0;">TheRecycled.app is not open to everyone.</p>
+       <p class="text-base" style="color:#8ab882;">We carefully select brands that meet our sustainability standards to maintain the integrity of our marketplace.</p>
+      </div>
+      <div class="grid grid-cols-2 gap-4">
+       <div class="p-6 rounded-2xl text-center" style="background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.1);"><i data-lucide="lock" class="mx-auto mb-3" style="width:28px;height:28px;color:#8ab882;"></i>
+        <p class="text-sm font-semibold text-white">By application only</p>
+       </div>
+       <div class="p-6 rounded-2xl text-center" style="background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.1);"><i data-lucide="users" class="mx-auto mb-3" style="width:28px;height:28px;color:#8ab882;"></i>
+        <p class="text-sm font-semibold text-white">Limited to 50 founding brands</p>
+       </div>
+       <div class="p-6 rounded-2xl text-center" style="background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.1);"><i data-lucide="sparkles" class="mx-auto mb-3" style="width:28px;height:28px;color:#8ab882;"></i>
+        <p class="text-sm font-semibold text-white">Curated, not crowded</p>
+       </div>
+       <div class="p-6 rounded-2xl text-center" style="background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.1);"><i data-lucide="award" class="mx-auto mb-3" style="width:28px;height:28px;color:#8ab882;"></i>
+        <p class="text-sm font-semibold text-white">Premium positioning</p>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- PRICING -->
+   <section class="py-20 md:py-28 px-6">
+    <div class="max-w-xl mx-auto text-center">
+     <p class="text-xs font-semibold tracking-widest uppercase mb-4" style="color:#4a8c5c;">Pricing</p>
+     <h2 class="font-serif text-3xl md:text-4xl mb-12" style="color:#1e4628;">Verification Fee</h2>
+     <div class="rounded-3xl p-10 relative overflow-hidden" style="background:#fff; border:2px solid #1e4628;">
+      <div class="absolute top-0 left-0 right-0 h-1" style="background: linear-gradient(90deg, #1e4628, #4a8c5c, #1e4628);"></div>
+      <p id="price-text" class="font-serif text-6xl md:text-7xl mb-2" style="color:#1e4628;">£249</p>
+      <p class="text-base mb-8" style="color:#5a6b5e;">One-time verification fee</p>
+      <div class="rounded-xl p-4 mb-8" style="background:#fef9ef; border:1px solid #f0e6cc;">
+       <p class="text-sm" style="color:#8a7340;"><i data-lucide="alert-circle" style="width:14px;height:14px;display:inline;vertical-align:-2px;"></i> Verification fee does not guarantee approval. All brands go through a strict review process.</p>
+      </div><a href="https://buy.stripe.com/4gMcMZa8g1Qmdlz4cLes000" target="_blank" rel="noopener noreferrer" class="cta-btn inline-flex items-center gap-2 px-8 py-4 rounded-full text-base font-semibold text-white w-full justify-center" style="background:#1e4628;"> Apply &amp; Get Verified <i data-lucide="arrow-right" style="width:18px;height:18px;"></i> </a>
+     </div>
+    </div>
+   </section><!-- HOW IT WORKS -->
+   <section class="py-20 md:py-28 px-6" style="background:#f0ede6;">
+    <div class="max-w-4xl mx-auto">
+     <div class="text-center mb-16">
+      <p class="text-xs font-semibold tracking-widest uppercase mb-4" style="color:#4a8c5c;">Process</p>
+      <h2 class="font-serif text-3xl md:text-5xl" style="color:#1e4628;">How It Works</h2>
+     </div>
+     <div class="grid md:grid-cols-3 gap-6">
+      <div class="step-card rounded-2xl p-8 text-center" style="background:#fff; border:1px solid #e0ddd5;">
+       <div class="w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-5" style="background:#e8f5e3;"><span class="font-serif text-2xl" style="color:#1e4628;">1</span>
+       </div>
+       <h3 class="font-semibold text-lg mb-2" style="color:#1e4628;">Apply &amp; Pay</h3>
+       <p class="text-sm" style="color:#5a6b5e;">Submit your verification fee of £249 to begin the process.</p>
+      </div>
+      <div class="step-card rounded-2xl p-8 text-center" style="background:#fff; border:1px solid #e0ddd5;">
+       <div class="w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-5" style="background:#e8f5e3;"><span class="font-serif text-2xl" style="color:#1e4628;">2</span>
+       </div>
+       <h3 class="font-semibold text-lg mb-2" style="color:#1e4628;">Complete Application</h3>
+       <p class="text-sm mb-3" style="color:#5a6b5e;">Fill out the detailed application form after payment.</p><a href="https://docs.google.com/forms/d/e/1FAIpQLSfs5mSLELK5Q0tpUV5YPrEDhHoac8WSeygVJ1R8YspIHCBDyQ/viewform" target="_blank" rel="noopener noreferrer" class="text-xs font-medium underline" style="color:#4a8c5c;">View Form →</a>
+      </div>
+      <div class="step-card rounded-2xl p-8 text-center" style="background:#fff; border:1px solid #e0ddd5;">
+       <div class="w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-5" style="background:#e8f5e3;"><span class="font-serif text-2xl" style="color:#1e4628;">3</span>
+       </div>
+       <h3 class="font-semibold text-lg mb-2" style="color:#1e4628;">Review &amp; Approval</h3>
+       <p class="text-sm" style="color:#5a6b5e;">Our team reviews your brand against our sustainability standards.</p>
+      </div>
+     </div>
+    </div>
+   </section><!-- AFTER APPROVAL -->
+   <section class="py-20 md:py-28 px-6">
+    <div class="max-w-4xl mx-auto">
+     <div class="text-center mb-16">
+      <p class="text-xs font-semibold tracking-widest uppercase mb-4" style="color:#4a8c5c;">After Review</p>
+      <h2 class="font-serif text-3xl md:text-5xl" style="color:#1e4628;">What Happens Next</h2>
+     </div>
+     <div class="grid md:grid-cols-2 gap-6">
+      <div class="rounded-2xl p-8" style="background:#e8f5e3; border:1px solid #c5dfc0;">
+       <div class="flex items-center gap-3 mb-4">
+        <div class="w-10 h-10 rounded-full flex items-center justify-center" style="background:#1e4628;"><i data-lucide="check" style="width:20px;height:20px;color:#fff;"></i>
+        </div>
+        <h3 class="font-serif text-xl" style="color:#1e4628;">If Approved</h3>
+       </div>
+       <p class="text-base mb-3" style="color:#2a5e36;">You'll be invited to join the <strong>Founding 50</strong> — our premium network of verified sustainable brands.</p>
+       <p class="text-sm font-semibold" style="color:#1e4628;">Premium Network: £2,000/year</p>
+      </div>
+      <div class="rounded-2xl p-8" style="background:#fff; border:1px solid #e0ddd5;">
+       <div class="flex items-center gap-3 mb-4">
+        <div class="w-10 h-10 rounded-full flex items-center justify-center" style="background:#f0ede6;"><i data-lucide="compass" style="width:20px;height:20px;color:#1e4628;"></i>
+        </div>
+        <h3 class="font-serif text-xl" style="color:#1e4628;">If Not Approved</h3>
+       </div>
+       <p class="text-base" style="color:#5a6b5e;">You'll receive personalised guidance and access to resources to help your brand qualify in the future.</p>
+      </div>
+     </div>
+    </div>
+   </section><!-- FINAL CTA -->
+   <section class="py-20 md:py-28 px-6 relative overflow-hidden" style="background:#1e4628;">
+    <div class="absolute inset-0 opacity-10">
+     <svg width="100%" height="100%">
+      <defs>
+       <radialgradient id="glow">
+        <stop offset="0%" stop-color="#a8c5a0" />
+        <stop offset="100%" stop-color="transparent" />
+       </radialgradient>
+      </defs><circle cx="50%" cy="50%" r="40%" fill="url(#glow)" />
+     </svg>
+    </div>
+    <div class="max-w-3xl mx-auto text-center relative z-10">
+     <h2 id="final-headline" class="font-serif text-3xl md:text-5xl lg:text-6xl text-white mb-6">Secure Your Place Among the Founding 50</h2><a href="https://buy.stripe.com/4gMcMZa8g1Qmdlz4cLes000" target="_blank" rel="noopener noreferrer" class="cta-btn inline-flex items-center gap-2 px-10 py-5 rounded-full text-lg font-semibold" style="background:#fff; color:#1e4628;"> Apply Now <i data-lucide="arrow-right" style="width:20px;height:20px;"></i> </a>
+    </div>
+   </section><!-- EMAIL SUBSCRIPTION -->
+   <section class="py-20 md:py-28 px-6" style="background:#f0ede6;">
+    <div class="max-w-xl mx-auto text-center">
+     <h2 id="subscribe-heading" class="font-serif text-3xl md:text-4xl mb-3" style="color:#1e4628;">Stay Connected</h2>
+     <p class="text-base mb-10" style="color:#5a6b5e;">Get updates, insights, and early access to opportunities within TheRecycled.app ecosystem.</p>
+     <form id="subscribe-form" class="rounded-2xl p-8 text-left" style="background:#fff; border:1px solid #e0ddd5;">
+      <div class="grid sm:grid-cols-2 gap-4 mb-4">
+       <div><label for="fname" class="block text-sm font-medium mb-1.5" style="color:#1e4628;">First Name</label> <input type="text" id="fname" placeholder="Jane" class="w-full px-4 py-3 rounded-xl text-sm outline-none transition-all focus:ring-2" style="background:#f7f5f0; border:1px solid #e0ddd5; color:#1e4628; --tw-ring-color:#4a8c5c;">
+       </div>
+       <div><label for="lname" class="block text-sm font-medium mb-1.5" style="color:#1e4628;">Last Name</label> <input type="text" id="lname" placeholder="Smith" class="w-full px-4 py-3 rounded-xl text-sm outline-none transition-all focus:ring-2" style="background:#f7f5f0; border:1px solid #e0ddd5; color:#1e4628; --tw-ring-color:#4a8c5c;">
+       </div>
+      </div>
+      <div class="mb-6"><label for="email" class="block text-sm font-medium mb-1.5" style="color:#1e4628;">Email Address</label> <input type="email" id="email" placeholder="jane@sustainablebrand.com" class="w-full px-4 py-3 rounded-xl text-sm outline-none transition-all focus:ring-2" style="background:#f7f5f0; border:1px solid #e0ddd5; color:#1e4628; --tw-ring-color:#4a8c5c;">
+      </div><button type="submit" class="cta-btn w-full py-4 rounded-xl text-base font-semibold text-white" style="background:#1e4628;"> Subscribe </button>
+      <p class="text-center text-xs mt-4" style="color:#8a8878;">No spam. Only valuable updates for sustainable brands.</p>
+      <div id="form-success" class="hidden mt-4 p-4 rounded-xl text-center text-sm font-medium" style="background:#e8f5e3; color:#1e4628;">
+       ✓ Thanks for subscribing! We'll be in touch.
+      </div>
+     </form>
+    </div>
+   </section><!-- FOOTER -->
+   <footer class="py-10 px-6 text-center" style="background:#1e4628;">
+    <p class="text-sm" style="color:#6b9870;">© 2025 TheRecycled.app — All rights reserved.</p>
+   </footer>
+  </div>
+  <script>
+  // Subscribe form
+  document.getElementById('subscribe-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    document.getElementById('form-success').classList.remove('hidden');
+    this.querySelectorAll('input').forEach(i => i.value = '');
+  });
+
+  // Lucide icons
+  lucide.createIcons();
+
+  // Element SDK
+  const STRIPE_URL = 'https://buy.stripe.com/4gMcMZa8g1Qmdlz4cLes000';
+
+  const defaultConfig = {
+    background_color: '#f7f5f0',
+    surface_color: '#ffffff',
+    text_color: '#1e4628',
+    primary_action_color: '#1e4628',
+    secondary_action_color: '#4a8c5c',
+    font_family: 'DM Serif Display',
+    font_size: 16,
+    hero_headline: 'Apply to Become a Verified Sustainable Brand',
+    hero_subheadline: 'Join a curated marketplace of trusted, verified brands committed to transparency and true sustainability.',
+    urgency_note: 'Limited to the Founding 50 brands',
+    price_text: '£249',
+    final_headline: 'Secure Your Place Among the Founding 50',
+    subscribe_heading: 'Stay Connected'
+  };
+
+  function applyConfig(config) {
+    const c = { ...defaultConfig, ...config };
+    const root = document.getElementById('app-root');
+    root.style.background = c.background_color;
+
+    const font = c.font_family || defaultConfig.font_family;
+    const baseFontStack = 'Georgia, serif';
+    const sansFontStack = 'Outfit, system-ui, sans-serif';
+
+    // Apply serif font to headings
+    document.querySelectorAll('.font-serif').forEach(el => {
+      el.style.fontFamily = `${font}, ${baseFontStack}`;
+    });
+
+    // Font size scaling
+    const base = c.font_size || defaultConfig.font_size;
+    document.getElementById('hero-headline').style.fontSize = '';
+    document.getElementById('hero-subheadline').style.fontSize = `${base * 1.2}px`;
+
+    // Text content
+    document.getElementById('hero-headline').textContent = c.hero_headline || defaultConfig.hero_headline;
+    document.getElementById('hero-subheadline').textContent = c.hero_subheadline || defaultConfig.hero_subheadline;
+    document.getElementById('urgency-note').textContent = c.urgency_note || defaultConfig.urgency_note;
+    document.getElementById('price-text').textContent = c.price_text || defaultConfig.price_text;
+    document.getElementById('final-headline').textContent = c.final_headline || defaultConfig.final_headline;
+    document.getElementById('subscribe-heading').textContent = c.subscribe_heading || defaultConfig.subscribe_heading;
+  }
+
+  window.elementSdk.init({
+    defaultConfig,
+    onConfigChange: async (config) => { applyConfig(config); },
+    mapToCapabilities: (config) => ({
+      recolorables: [
+        { get: () => config.background_color || defaultConfig.background_color, set: (v) => { config.background_color = v; window.elementSdk.setConfig({ background_color: v }); } },
+        { get: () => config.surface_color || defaultConfig.surface_color, set: (v) => { config.surface_color = v; window.elementSdk.setConfig({ surface_color: v }); } },
+        { get: () => config.text_color || defaultConfig.text_color, set: (v) => { config.text_color = v; window.elementSdk.setConfig({ text_color: v }); } },
+        { get: () => config.primary_action_color || defaultConfig.primary_action_color, set: (v) => { config.primary_action_color = v; window.elementSdk.setConfig({ primary_action_color: v }); } },
+        { get: () => config.secondary_action_color || defaultConfig.secondary_action_color, set: (v) => { config.secondary_action_color = v; window.elementSdk.setConfig({ secondary_action_color: v }); } }
+      ],
+      borderables: [],
+      fontEditable: {
+        get: () => config.font_family || defaultConfig.font_family,
+        set: (v) => { config.font_family = v; window.elementSdk.setConfig({ font_family: v }); }
+      },
+      fontSizeable: {
+        get: () => config.font_size || defaultConfig.font_size,
+        set: (v) => { config.font_size = v; window.elementSdk.setConfig({ font_size: v }); }
+      }
+    }),
+    mapToEditPanelValues: (config) => new Map([
+      ['hero_headline', config.hero_headline || defaultConfig.hero_headline],
+      ['hero_subheadline', config.hero_subheadline || defaultConfig.hero_subheadline],
+      ['urgency_note', config.urgency_note || defaultConfig.urgency_note],
+      ['price_text', config.price_text || defaultConfig.price_text],
+      ['final_headline', config.final_headline || defaultConfig.final_headline],
+      ['subscribe_heading', config.subscribe_heading || defaultConfig.subscribe_heading]
+    ])
+  });
+</script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9e3745cd911e0f0a',t:'MTc3NDcwNzU5Ni4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
